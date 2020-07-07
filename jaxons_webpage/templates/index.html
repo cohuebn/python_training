@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Jaxon and Levi's Webpage</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+        <script>
+            function update_image(src) {
+                document.getElementById('character').src = src;
+            }
+        </script>
+        <style>
+            #character {
+                height: 350px;
+                width: 350px;
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is Jaxon's webpage</h1>
+        <label>Name:</label>
+        <input type="text" name="name" />
+        <button onclick="update_image('static/img/sonic.png')">sonic the hedgehog</button>
+        <button onclick="update_image('static/img/ursula.jpeg')">Ursula!!</button>
+        <button onclick="update_image('static/img/mickey.jpg')">mickey</button>
+        <button onclick="update_image('static/img/donny.jpg')">donny</button>
+        <button onclick="update_image('static/img/rosetta.jpg')">rosetta</button>
+        <br />
+        <img id="character" src="static/img/unknown.png"
+    </body>
+</html>
