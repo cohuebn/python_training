@@ -4,8 +4,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
         <script>
+            images = {
+                sonic: 'static/img/sonic.png',
+                ursula: 'static/img/ursula.jpeg',
+                mickey: 'static/img/mickey.jpg',
+                donny: 'static/img/donny.png',
+                rosetta: 'static/img/rosetta.jpg',
+                'iron-man': 'static/img/iron-man.jpg',
+                whisper: 'static/img/Whisper.png'
+            }
             function update_image(src) {
-                document.getElementById('character').src = src;
+                document.getElementById('character').src = images[src];
+            }
+
+            function random_image() {
+                countup = Math.floor(Math.random() * 1000);
+                imageKeys = Object.keys(images);
+                for (var counter=0; counter < countup; counter++) {
+                    const currentImage = imageKeys[counter % imageKeys.length];
+                    setTimeout(() => update_image(currentImage), counter*5);
+                }
             }
         </script>
         <style>
@@ -20,11 +38,14 @@
         <h1>This is Jaxon's webpage</h1>
         <label>Name:</label>
         <input type="text" name="name" />
-        <button onclick="update_image('static/img/sonic.png')">sonic the hedgehog</button>
-        <button onclick="update_image('static/img/ursula.jpeg')">Ursula!!</button>
-        <button onclick="update_image('static/img/mickey.jpg')">mickey</button>
-        <button onclick="update_image('static/img/donny.jpg')">donny</button>
-        <button onclick="update_image('static/img/rosetta.jpg')">rosetta</button>
+        <button onclick="update_image('sonic')">sonic the hedgehog</button>
+        <button onclick="update_image('ursula')">ursula</button>
+        <button onclick="update_image('mickey')">mickey</button>
+        <button onclick="update_image('donny')">donny</button>
+        <button onclick="update_image('rosetta')">rosetta</button>
+        <button onclick="update_image('iron-man')">iron man</button>
+        <button onclick="update_image('whisper')">Whisper</button>
+        <button onclick="random_image()">random!!</button>
         <br />
         <img id="character" src="static/img/unknown.png"
     </body>
